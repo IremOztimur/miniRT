@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:10:31 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/02 17:15:52 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/02 17:26:52 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Vector Vector_scale(Vector self, float scalar)
 	return (self);
 }
 
-Vector Vector_subt(Vector self, float scalar)
+Vector Vector_div(Vector self, float scalar)
 {
 	self.x /= scalar;
 	self.y /= scalar;
@@ -56,5 +56,5 @@ Vector Vector_subt(Vector self, float scalar)
 
 Vector Vector_normalize(Vector self)
 {
-	return (Vector_subt(self, Vector_magnitude(self)));
+	return (Vector_div(self, Vector_magnitude(self)));
 }

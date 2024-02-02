@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/02 17:19:13 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/02 17:26:52 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int main()
     Vector scaledVector = Vector_scale(vector1, 2.0f);
     printf("Scaled Vector: x=%.2f, y=%.2f, z=%.2f\n", scaledVector.x, scaledVector.y, scaledVector.z);
 
-    // Test Vector_subt function
-    Vector dividedVector = Vector_subt(vector1, 2.0f);
+    // Test Vector_div function
+    Vector dividedVector = Vector_div(vector1, 2.0f);
     printf("Divided Vector: x=%.2f, y=%.2f, z=%.2f\n", dividedVector.x, dividedVector.y, dividedVector.z);
 
     // Test Vector_normalize function
