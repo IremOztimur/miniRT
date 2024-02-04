@@ -51,7 +51,6 @@ CFLAGS		= -Wall -Wextra -Werror -I./mlx_macos -g
 CPPFLAGS	= -I mandatory/$(INC_FOLDER)
 MAKEFLAGS	= --no-print-directory
 MLXFLAGS    = -framework Appkit -framework OpenGL -L ./mlx_macos -lmlx
-#MLXFLAGS = -L ./$(MLX) -lmlx -framework OpenGL -framework AppKit
 LIBFTFLAGS	= -L ./$(LIB)
 LDFLAGS		= $(LIBFTFLAGS) $(MLXFLAGS)
 
@@ -81,41 +80,6 @@ MANDATORY_FILES += main
 OBJS = $(patsubst %, $(OBJ_FOLDER)/%.o, $(MANDATORY_FILES))
 
 NAME     = miniRT
-
-#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
-#_                                                                                           _
-#_                                       CONDITIONALS                                        _
-#_                                                                                           _
-#_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
-
-# To make use of these flags, you must define them in the command line, when
-# running the make command. For instance, if you want the debug flag:
-#	make D=1
-# The value of 1 is a dummy value, as the make command needs an assignment
-# to recognize D as a variable, otherwise it would be considered a target
-# If you need both debug and sanitizer:
-# 	make D=1 SAN=A
-
-ifdef D
-	CFLAGS += -g
-endif
-
-ifeq ($(SAN), A)
-	CFLAGS += -fsanitize=address
-else ifeq ($(SAN), L)
-	CFLAGS += -fsanitize=leak
-else ifeq ($(SAN), M)
-	CFLAGS += -fsanitize=memory
-else ifeq ($(SAN), T)
-	CFLAGS += -fsanitize=thread
-else ifeq ($(SAN), U)
-	CFLAGS += -fsanitize=undefined
-endif
-
-ifeq ($(OS), Darwin)
-	MLX = mlx_macos
-	MLXFLAGS = -L ./$(MLX) -lmlx -framework OpenGL -framework AppKit -lm
-endif
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 #_                                                                                           _
