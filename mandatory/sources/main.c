@@ -6,39 +6,11 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 11:27:28 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 22:50:13 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
-
-void	nc_free(void *ptr)
-{
-	if (ptr)
-		free(ptr);
-}
-
-void	destroy_world(Scene **world)
-{
-	if (!(*world))
-		return ;
-	if ((*world)->disp.img)
-		mlx_destroy_image((*world)->disp.mlx, (*world)->disp.img);
-	if ((*world)->disp.win)
-		mlx_destroy_window((*world)->disp.mlx, (*world)->disp.win);
-	if ((*world)->disp.mlx)
-		mlx_destroy_display((*world)->disp.mlx);
-	nc_free((*world)->disp.mlx);
-	free(*world);
-	*world = NULL;
-}
-
-void	message(Scene *scene, char *text)
-{
-	destroy_world(&scene);
-	printf("Error\n%s\n", text);
-	exit(EXIT_FAILURE);
-}
 
 void	init_graphics(Scene *w)
 {
@@ -57,10 +29,10 @@ void	init_graphics(Scene *w)
 		message(w, ERROR_MALLOC("init_graphics (mlx image address)"));
 }
 
-
-
 int	main(void)
 {
-	Scene *scene;
+	Scene *scene = malloc(sizeof(Scene));
+
+	init_viewport(scene);
 	init_graphics(scene);
 }

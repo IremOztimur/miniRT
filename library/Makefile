@@ -34,7 +34,8 @@ SRC = 	ft_toupper.c \
 		ft_split.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-		ft_clamp.c
+		ft_clamp.c \
+		ft_free.c
 
 SRCS = ${addprefix ./libft/,${SRC}} \
 		gnl/get_next_line.c \

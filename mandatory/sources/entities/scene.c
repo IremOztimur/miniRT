@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 12:10:24 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 22:12:51 by iremoztimur      ###   ########.fr       */
+/*   Created: 2024/02/04 12:05:05 by iremoztimur       #+#    #+#             */
+/*   Updated: 2024/02/04 12:09:28 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vector.h"
+#include "../../includes/entities.h"
 
-Vector Vector_create(float x, float y, float z)
+void		Scene_destroy(Scene **scene)
 {
-	Vector vector;
-
-	vector.x = x;
-	vector.y = y;
-	vector.z = z;
-
-	return (vector);
-}
-
-float Vector_magnitude(Vector self)
-{
-	return(sqrt(Vector_dot(self, self)));
+	if (!(*scene))
+		return ;
+	if ((*scene)->disp.img)
+		mlx_destroy_image((*scene)->disp.mlx, (*scene)->disp.img);
+	if ((*scene)->disp.win)
+		mlx_destroy_window((*scene)->disp.mlx, (*scene)->disp.win);
+	ft_free((*scene)->disp.mlx);
+	free(*scene);
+	*scene = NULL;
 }

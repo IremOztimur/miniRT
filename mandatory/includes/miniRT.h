@@ -9,6 +9,9 @@
 #include "structs.h"
 #include "vector.h"
 #include "color.h"
+#include "utils.h"
+#include "entities.h"
+#include "renderer.h"
 
 
 #endif

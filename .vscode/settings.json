@@ -6,6 +6,7 @@
 		"color.h": "c",
 		"structs.h": "c",
 		"vector.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"renderer.h": "c"
 	}
 }

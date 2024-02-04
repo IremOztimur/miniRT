@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 12:10:24 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 22:12:51 by iremoztimur      ###   ########.fr       */
+/*   Created: 2024/02/04 12:10:51 by iremoztimur       #+#    #+#             */
+/*   Updated: 2024/02/04 12:11:06 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vector.h"
+#include "libft.h"
 
-Vector Vector_create(float x, float y, float z)
+void	ft_free(void *ptr)
 {
-	Vector vector;
-
-	vector.x = x;
-	vector.y = y;
-	vector.z = z;
-
-	return (vector);
-}
-
-float Vector_magnitude(Vector self)
-{
-	return(sqrt(Vector_dot(self, self)));
+	if (ptr)
+		free(ptr);
 }

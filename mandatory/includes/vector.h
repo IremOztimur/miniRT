@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:06:43 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/03 17:05:27 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 22:11:42 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,15 @@ Vector Vector_div(Vector vector, float scalar);
  * @param v2 second vector
  * @return double
  */
-float Vector_dot_product(const Vector v1, const Vector v2);
+float Vector_dot(const Vector v1, const Vector v2);
+
+/**
+ * @brief function to calculate the cross product of two vectors
+ *
+ * @param v1 first vector
+ * @param v2 second vector
+ * @return vector(x, y, z)
+ */
+Vector	Vector_cross(Vector v1, Vector v2);
 
 #endif

@@ -6,18 +6,14 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:10:31 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/03 17:05:10 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 22:12:06 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/vector.h"
 
-float Vector_magnitude(Vector self)
-{
-	return(sqrt(Vector_dot_product(self, self)));
-}
 
-float Vector_dot_product(const Vector v1, const Vector v2)
+float Vector_dot(const Vector v1, const Vector v2)
 {
 	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }
@@ -57,4 +53,15 @@ Vector Vector_div(Vector vector, float scalar)
 Vector Vector_normalize(Vector self)
 {
 	return (Vector_div(self, Vector_magnitude(self)));
+}
+
+Vector Vector_cross(Vector v1, Vector v2)
+{
+	Vector crossed_v;
+
+	crossed_v.x = v1.y * v2.z - v1.z * v2.y;
+	crossed_v.y = v1.z * v1.x - v1.x * v2.z;
+	crossed_v.z = v1.x * v2.y - v1.y * v2.x;
+
+	return (crossed_v);
 }

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:10:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 11:20:50 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 15:25:45 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ typedef struct Vector {
 
 /**
  * @brief Represents a color by its components
+ * @param t The transparency component
  * @param r The red component
  * @param g The green component
  * @param b The blue component
  */
 typedef struct Color {
+	int t;
 	int r;
 	int g;
 	int b;
@@ -63,6 +65,40 @@ typedef struct Camera
 	Vector	normal;
 	double	fov;
 }	Camera;
+
+/**
+ * @brief Contains the necessary fields to handle both second degree
+ * and linear equations.
+ *
+ * @param a The a value
+ * @param b The b value
+ * @param c The c value
+ * @param t1 The first root
+ * @param t2 The second root
+ */
+typedef struct s_equation
+{
+	double	a;
+	double	b;
+	double	c;
+	double	t1;
+	double	t2;
+}			t_equation;
+
+/**
+ * @brief Describes a sphere
+ *
+ * @param center The center of the sphere
+ * @param radius The radius of the sphere
+ * @param color The color of the sphere
+ */
+typedef struct Sphere
+{
+	double	radius;
+	Vector	center;
+	Color	color;
+}		Sphere;
+
 
 /**
  * @brief Contains mlx related variables
