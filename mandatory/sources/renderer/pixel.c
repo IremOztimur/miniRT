@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   pixel.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/03 17:11:58 by iremoztimur      ###   ########.fr       */
+/*   Created: 2024/02/03 17:06:11 by iremoztimur       #+#    #+#             */
+/*   Updated: 2024/02/03 17:30:46 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include "../../includes/renderer.h"
 
-#include <math.h>
-#include <stdlib.h>
-#include <stdint.h>
+void put_pixel(Scene *w, Color c, int x, int y)
+{
+	char *dst;
 
-//! Parsing macros
+    // Calculate the memory address of the pixel in the image buffer
+	dst = w->disp.addr + (y * WIDTH + x) * (w->disp.bpp / 8);
 
-# define X 0
-# define Y 1
-# define Z 2
-
-# define R 0
-# define G 1
-# define B 2
-
-#  define WIDTH 1440
-# define RATIO 	(16.0/9.0)
-# define HEIGHT (WIDTH/RATIO)
-#endif
+    // Set the pixel color in the image buffer
+    *(unsigned int *)dst = (c.r << 16 | c.g << 8 | c.b);
+}

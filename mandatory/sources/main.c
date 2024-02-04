@@ -6,11 +6,11 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/02 17:26:52 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/03 17:50:33 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/vector.h"
+#include "../includes/vector.h"
 #include <stdio.h>
 
 int main()

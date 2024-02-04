@@ -1,8 +1,9 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
-#include "../../libft/libft.h"
-#include "../../gnl/get_next_line.h"
+#include "../../library/libft/libft.h"
+#include "../../library/gnl/get_next_line.h"
+#include "../../mlx_macos/mlx.h"
 
 #include "macros.h"
 #include "structs.h"

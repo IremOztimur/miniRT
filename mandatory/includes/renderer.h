@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   renderer.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/03 17:11:58 by iremoztimur      ###   ########.fr       */
+/*   Created: 2024/02/03 16:58:49 by iremoztimur       #+#    #+#             */
+/*   Updated: 2024/02/03 17:05:52 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include "miniRT.h"
 
-#include <math.h>
-#include <stdlib.h>
-#include <stdint.h>
-
-//! Parsing macros
-
-# define X 0
-# define Y 1
-# define Z 2
-
-# define R 0
-# define G 1
-# define B 2
-
-#  define WIDTH 1440
-# define RATIO 	(16.0/9.0)
-# define HEIGHT (WIDTH/RATIO)
-#endif
+/**
+ * @brief Puts a pixel in an image with the given color and at the given
+ * coordinates
+ *
+ * @param w The t_world struct
+ * @param c The pixel's color
+ * @param x The horizontal displacement
+ * @param y The vertical displacement
+ */
+void	put_pixel(Scene *w, Color c, int x, int y);

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:29:06 by ioztimur          #+#    #+#             */
-/*   Updated: 2024/02/02 16:50:02 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/03 18:19:18 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_putnbr_fd(int n, int fd);
-int	ft_clamp(int n, int min, int max);
+int		ft_clamp(int n, int min, int max);
 
 #endif
