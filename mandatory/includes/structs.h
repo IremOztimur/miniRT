@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:10:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/03 16:55:33 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 11:20:50 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ typedef struct s_graphics
 	int		height;
 	int		width;
 	int		bpp;
+	int		line_length;
+	int		endian;
 }	t_graphics;
 
 /**

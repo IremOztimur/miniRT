@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/03 17:11:58 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 11:21:56 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdio.h>
 
 //! Parsing macros
 
@@ -30,4 +31,8 @@
 #  define WIDTH 1440
 # define RATIO 	(16.0/9.0)
 # define HEIGHT (WIDTH/RATIO)
+
+
+# define ERROR_MALLOC(str)  "Failed allocation on "str"."
+
 #endif

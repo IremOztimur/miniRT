@@ -38,7 +38,7 @@ OBJ_FOLDER	= objects
 DEP_FOLDER	= dependencies
 LIB			= library
 LIB_A		= library/lib.a
-MLX = ./mlx_macos/libmlx.a
+MLX			= mlx_macos
 _SUBFOLDERS	= . renderer vector \
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_

@@ -4,6 +4,8 @@
 		"minirt.h": "c",
 		"struct.h": "c",
 		"color.h": "c",
-		"structs.h": "c"
+		"structs.h": "c",
+		"vector.h": "c",
+		"mlx.h": "c"
 	}
 }
