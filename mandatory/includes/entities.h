@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:47 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 12:07:22 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 23:09:08 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
  * all members of the struct.
  *
  *
- * @return t_world struct with root information
+ * @return Scene struct with root information
  */
-Scene		*Scene_new(void);
+Scene		*Scene_create(void);
 
 /**
  * @brief this function will destroy the scene struct and free all
  * members of the struct.
  *
- * @param Scene t_world struct with root information
+ * @param Scene Scene struct with root information
  */
 void		Scene_destroy(Scene **scene);
 

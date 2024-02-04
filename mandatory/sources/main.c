@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 22:50:13 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/04 23:10:07 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_graphics(Scene *w)
 
 int	main(void)
 {
-	Scene *scene = malloc(sizeof(Scene));
+	Scene *scene = Scene_create();
 
 	init_viewport(scene);
 	init_graphics(scene);
