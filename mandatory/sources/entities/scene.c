@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:05 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 23:10:38 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/05 18:59:47 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Scene		*Scene_create(void)
 	scene = ft_calloc(1, sizeof(Scene));
 	if (!scene)
 		return (NULL);
+	
 
 	return (scene);
 }

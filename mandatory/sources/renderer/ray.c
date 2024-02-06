@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 13:46:17 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 23:02:16 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/06 13:38:25 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,7 @@ Ray	cast_ray(Scene *s, Vector factors)
 	return(ray);
 }
 
-// TO-DO: Write a function that formulates ray equation
+Vector ray_at(Ray ray, double t)
+{
+	return (Vector_add(ray.origin, Vector_scale(ray.direction, t)));
+}

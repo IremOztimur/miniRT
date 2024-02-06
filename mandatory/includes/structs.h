@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:10:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 15:25:45 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/06 13:39:03 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
  * @param z The z component
  */
 typedef struct Vector {
-	float x;
-	float y;
-	float z;
+	float	x;
+	float	y;
+	float	z;
 }	Vector;
 
 
@@ -38,7 +38,7 @@ typedef struct Color {
 	int r;
 	int g;
 	int b;
-} Color;
+}	Color;
 
 /**
  * @brief A scene's ray
@@ -67,6 +67,54 @@ typedef struct Camera
 }	Camera;
 
 /**
+ * @brief Describes what shape you're dealing with
+ */
+typedef enum s_shape_type
+{
+	SPHERE,
+}	t_shape_type;
+
+/**
+ * @brief Describes a sphere
+ *
+ * @param center The center of the sphere
+ * @param radius The radius of the sphere
+ * @param color The color of the sphere
+ */
+typedef struct Sphere
+{
+	Vector	center;
+	double	radius;
+	Color	color;
+}	Sphere;
+
+/**
+ * @brief Contains the data of only ONE of the shapes at a time.
+ * This means that if the cylinder is used, reading from the plane or
+ * sphere will give you random values.
+ *
+ * @param sp The Sphere struct
+ */
+typedef union u_data
+{
+	Sphere	sp;
+}	t_data;
+
+/**
+ * @brief Describes a shape
+ *
+ * @param data The union containing the shape data
+ * @param type The type of shape
+ * @param id A number between 0 and the number of shapes in the scene
+ */
+typedef struct s_shape
+{
+	t_data			data;
+	t_shape_type	type;
+	int				id;
+}	t_shape;
+
+/**
  * @brief Contains the necessary fields to handle both second degree
  * and linear equations.
  *
@@ -84,21 +132,6 @@ typedef struct s_equation
 	double	t1;
 	double	t2;
 }			t_equation;
-
-/**
- * @brief Describes a sphere
- *
- * @param center The center of the sphere
- * @param radius The radius of the sphere
- * @param color The color of the sphere
- */
-typedef struct Sphere
-{
-	double	radius;
-	Vector	center;
-	Color	color;
-}		Sphere;
-
 
 /**
  * @brief Contains mlx related variables
