@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 22:23:19 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/06 23:11:17 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 //! Parsing macros
 
@@ -65,6 +66,12 @@
 # define PINK		(Color){0, 255, 0, 255}
 # define CYAN		(Color){0, 0, 255, 255}
 
+//! Error macros
 # define ERROR_MALLOC(str)  "Failed allocation on "str"."
+# define ERROR_USAGE 		"Usage: ./miniRT <scene>.rt"
+# define ERROR_SYNTAX		"Syntax: file format misconfiguration."
+# define ERROR_OPEN_FILE	"Couldn't open requested file"
+# define ERROR_NOT_RT		"File extension is not '.rt'."
+# define ERROR_EMPTY_MAP	"Empty map."
 
 #endif

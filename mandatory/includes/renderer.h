@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 16:58:49 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 15:28:42 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/06 15:53:18 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,20 @@ void	init_viewport(Scene *s);
  * @return Ray The casted ray
  */
 Ray	cast_ray(Scene *s, Vector factors);
+
+/**
+ * @brief Returns the point in the given ray with t direction vectors. A ray's
+ * equation is given by:
+ *
+ * 		P = O + tD
+ *
+ * P - The point at t direction vectors
+ * O - The ray's origin
+ * t - Distance factor
+ * D - The ray' direction
+ *
+ * @param ray The casted ray
+ * @param t The distance factor
+ * @return Vector The point at t
+ */
+Vector	ray_at(Ray *ray, double t);

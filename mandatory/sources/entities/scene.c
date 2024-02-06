@@ -6,13 +6,12 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:05 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/05 18:59:47 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/06 22:50:04 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/entities.h"
 
-// TO-DO: Shapes and lights will be created as well
 Scene		*Scene_create(void)
 {
 	Scene *scene;
@@ -20,8 +19,8 @@ Scene		*Scene_create(void)
 	scene = ft_calloc(1, sizeof(Scene));
 	if (!scene)
 		return (NULL);
-	
-
+	scene->shapes = ft_vector_new((void *)&shape_copy, &free);
+	//TO-DO create light here
 	return (scene);
 }
 

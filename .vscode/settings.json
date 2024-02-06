@@ -7,6 +7,10 @@
 		"structs.h": "c",
 		"vector.h": "c",
 		"mlx.h": "c",
-		"renderer.h": "c"
+		"renderer.h": "c",
+		"utils.h": "c",
+		"__locale": "c",
+		"libft.h": "c",
+		"parser.h": "c"
 	}
 }

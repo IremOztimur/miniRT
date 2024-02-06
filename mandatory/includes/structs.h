@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:10:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 13:39:03 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/06 14:39:35 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,11 +158,33 @@ typedef struct s_graphics
 }	t_graphics;
 
 /**
+ * @brief Describes an intersection point in the scene between
+ * a ray and a shape.
+ *
+ * @param shape The shape that was hit
+ * @param ray The ray that hit the shape
+ * @param point The intersection point
+ * @param normal The normal of the shape in the intersection point
+ * @param color The color of the hit shape
+ * @param a Used to know where the ray hit in a cylinder's axis
+ * @param t The distance between the hit the ray's origin
+ */
+typedef struct s_hit
+{
+	t_shape	*shape;
+	Ray	ray;
+	Vector	point;
+	Vector	normal;
+	Color	color;
+	Vector	a;
+	double	t;
+}	t_hit;
+
+/**
  * @brief The primary struct, contains everything needed to describe a scene
  *
  * @param camera The scene's camera
  * @param ambient The scene's ambient light
- * @param lights The scenes' light sources vector
  * @param shapes The scene's shapes vector
  * @param counters The number of A, C and L entities found when parsing
  * @param disp The mlx variables
@@ -177,6 +199,7 @@ typedef struct Scene
 	Camera	camera;
 	int			counters[3];
 	t_graphics	disp;
+	t_vector		*shapes;
 	Vector		up;
 	Vector		right;
 	char		**map;

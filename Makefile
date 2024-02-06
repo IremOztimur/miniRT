@@ -39,7 +39,7 @@ DEP_FOLDER	= dependencies
 LIB			= library
 LIB_A		= library/lib.a
 MLX			= mlx_macos
-_SUBFOLDERS	= . renderer vector entities utils\
+_SUBFOLDERS	= . renderer vector entities utils intersections parser\
 
 #_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_/=\_
 #_                                                                                           _
@@ -75,8 +75,10 @@ vpath %.c $(foreach subfolder, $(_SUBFOLDERS), mandatory/$(SRC_FOLDER)/$(subfold
 
 MANDATORY_FILES += pixel color ray
 MANDATORY_FILES += vector vector_operations
-MANDATORY_FILES += scene
+MANDATORY_FILES += scene shape
 MANDATORY_FILES += message quadratic_formula
+MANDATORY_FILES += intersection
+MANDATORY_FILES += parser
 MANDATORY_FILES += main
 
 OBJS = $(patsubst %, $(OBJ_FOLDER)/%.o, $(MANDATORY_FILES))

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   message.c                                          :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/04 12:01:35 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 16:00:17 by iremoztimur      ###   ########.fr       */
+/*   Created: 2024/02/06 22:40:37 by iremoztimur       #+#    #+#             */
+/*   Updated: 2024/02/06 22:41:36 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/miniRT.h"
+#include "miniRT.h"
 
-void	message(Scene *scene, char *text)
-{
-	Scene_destroy(&scene);
-	 printf("\033[1;31mERROR\033[0m\n%s\n", text);
-	exit(EXIT_FAILURE);
-}
+Scene	*parse(char *filename);
+
+char	**read_map(Scene *scene, char *filename);
+
+bool	is_filename_valid(char *filename);
