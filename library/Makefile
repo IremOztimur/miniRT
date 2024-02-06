@@ -43,7 +43,8 @@ SRC = 	ft_toupper.c \
 		ft_vector_push.c \
 		ft_matrix_delete.c \
 		ft_matrix_size.c \
-		ft_matrix_append.c
+		ft_matrix_append.c \
+		ft_matrix_new.c
 
 SRCS = ${addprefix ./libft/,${SRC}} \
 		gnl/get_next_line.c \

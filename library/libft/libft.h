@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:29:06 by ioztimur          #+#    #+#             */
-/*   Updated: 2024/02/05 18:41:58 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/06 22:34:06 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void		ft_vector_push(t_vector *vector, void *element);
 void		ft_matrix_delete(void *matrix, void (*del)(void *));
 size_t		ft_matrix_size(void *matrix);
 void		*ft_matrix_append(void *matrix, void *data, void *(*copy)(void *));
+void		*ft_matrix_new(size_t lines, size_t columns);
 
 #endif
