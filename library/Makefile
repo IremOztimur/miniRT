@@ -21,6 +21,7 @@ SRC = 	ft_toupper.c \
 		ft_strrchr.c \
 		ft_memchr.c \
 		ft_atoi.c \
+		ft_atod.c \
 		ft_memcmp.c \
 		ft_calloc.c \
 		ft_strdup.c \
@@ -45,7 +46,8 @@ SRC = 	ft_toupper.c \
 		ft_matrix_delete.c \
 		ft_matrix_size.c \
 		ft_matrix_append.c \
-		ft_matrix_new.c
+		ft_matrix_new.c \
+		ft_count.c
 
 SRCS = ${addprefix ./libft/,${SRC}} \
 		gnl/get_next_line.c \

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:29:06 by ioztimur          #+#    #+#             */
-/*   Updated: 2024/02/06 23:52:37 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 12:53:19 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,7 @@ size_t		ft_matrix_size(void *matrix);
 void		*ft_matrix_append(void *matrix, void *data, void *(*copy)(void *));
 void		*ft_matrix_new(size_t lines, size_t columns);
 int			ft_strcmp(char *s1, char *s2);
+int			ft_count(char *str, char c);
+double		ft_atod(char *str);
 
 #endif
