@@ -6,6 +6,7 @@ SRC = 	ft_toupper.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
+		ft_isnum.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
 		ft_memcpy.c \
