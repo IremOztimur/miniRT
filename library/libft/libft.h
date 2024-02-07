@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:29:06 by ioztimur          #+#    #+#             */
-/*   Updated: 2024/02/07 13:06:08 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 13:17:22 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int			ft_strcmp(char *s1, char *s2);
 int			ft_count(char *str, char c);
 double		ft_atod(char *str);
 bool		ft_isnum(char *str, char *delims);
+size_t		ft_strclen(char *str, char *delim);
 
 #endif
