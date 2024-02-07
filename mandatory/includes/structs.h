@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:10:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 14:39:35 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 13:11:16 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,22 @@ typedef struct Camera
 	Vector	normal;
 	double	fov;
 }	Camera;
+
+/**
+ * @brief Used to represent both the ambient light and a light source.
+ *
+ * @param center The center of the light source
+ * @param ratio The ratio/brightness of the light
+ * @param color The light's color
+ *
+ * @note The center field is not used in ambient lighting
+ */
+typedef struct Light
+{
+	Vector	center;
+	double	ratio;
+	Color	color;
+}	Light;
 
 /**
  * @brief Describes what shape you're dealing with
@@ -133,6 +149,8 @@ typedef struct s_equation
 	double	t2;
 }			t_equation;
 
+
+
 /**
  * @brief Contains mlx related variables
  *
@@ -143,6 +161,8 @@ typedef struct s_equation
  * @param height The image's height
  * @param width The image's width
  * @param bpp The bytes per pixel in the image pointer
+ * @param line_length (not used)
+ * @param endian (not used)
  */
 typedef struct s_graphics
 {
@@ -196,15 +216,17 @@ typedef struct s_hit
  */
 typedef struct Scene
 {
-	Camera	camera;
-	int			counters[3];
-	t_graphics	disp;
+	Camera			camera;
+	Light			ambient;
+	int				counters[3];
+	t_graphics		disp;
 	t_vector		*shapes;
-	Vector		up;
-	Vector		right;
-	char		**map;
-	double		hview;
-	double		wview;
+	t_vector		*lights;
+	Vector			up;
+	Vector			right;
+	char			**map;
+	double			hview;
+	double			wview;
 }	Scene;
 
 #endif

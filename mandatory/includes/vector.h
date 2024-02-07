@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:06:43 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 22:11:42 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 14:38:31 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,13 @@ float Vector_dot(const Vector v1, const Vector v2);
  * @return vector(x, y, z)
  */
 Vector	Vector_cross(Vector v1, Vector v2);
+
+/**
+ * @brief function to create a new vector from a string array
+ *
+ * @param vec string array with the values of x, y and z coordinates
+ * @return vector(x, y, z)
+ */
+Vector Vector_from_string(char **vec);
 
 #endif

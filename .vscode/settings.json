@@ -11,6 +11,11 @@
 		"utils.h": "c",
 		"__locale": "c",
 		"libft.h": "c",
-		"parser.h": "c"
+		"parser.h": "c",
+		"entities.h": "c",
+		"array": "c",
+		"string": "c",
+		"string_view": "c",
+		"vector": "c"
 	}
 }

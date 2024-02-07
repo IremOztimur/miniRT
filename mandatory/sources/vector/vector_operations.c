@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:10:31 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/04 22:12:06 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 14:37:40 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,15 @@ Vector Vector_cross(Vector v1, Vector v2)
 	crossed_v.z = v1.x * v2.y - v1.y * v2.x;
 
 	return (crossed_v);
+}
+
+Vector Vector_from_string(char **vec)
+{
+	Vector vector;
+
+	vector.x = ft_atod(vec[X]);
+	vector.y = ft_atod(vec[Y]);
+	vector.z = ft_atod(vec[Z]);
+
+	return (vector);
 }

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 15:54:29 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 21:38:07 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ int	main(int argc, char **av)
 
 	if (argc != 2)
 		message(NULL, ERROR_USAGE);
-	printf("%s", av[1]);
-	//TO-DO: add parser
-	//scene = parse(av[1]);
+	scene = parse(av[1]);
 	init_viewport(scene);
 	init_graphics(scene);
-
+	//TO-DO: render the scene
 }

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:05 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 22:50:04 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 18:55:59 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Scene		*Scene_create(void)
 	if (!scene)
 		return (NULL);
 	scene->shapes = ft_vector_new((void *)&shape_copy, &free);
-	//TO-DO create light here
+	scene->lights = ft_vector_new((void *)&light_copy, &free);
 	return (scene);
 }
 

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:47 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 22:39:26 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 19:52:55 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ Scene		*Scene_create(void);
  */
 void		Scene_destroy(Scene **scene);
 
+//! Shapes
+/**
+ * @brief this function will create the corresponding shape given in the
+ * type parameter and store it's information on the shape struct
+ *
+ * @param data struct with shape information
+ * @param type type of the shape
+ * @param id id of the shape (each shape has a unique id)
+ * @return t_shape struct with shape information
+ */
+t_shape		*shape_new(void	*data, t_shape_type type, int id);
+
 /**
  * @brief this function will copy the shape information from the shape
  * parameter to a new shape
@@ -52,6 +64,17 @@ t_shape		*shape_copy(t_shape *shape);
  */
 bool intersects(t_shape *shape, Ray *ray, t_hit *hit_info);
 
+//! Spheres
+/**
+ * @brief this function will create a sphere and store it's information
+ * from a string array
+ *
+ * @param sp Sphere struct with sphere information
+ * @param tokens string array with sphere information
+ * @return true if the sphere was created correctly, false otherwise
+ */
+bool		sphere_from_strings(Sphere *sp, char **tokens);
+
 /**
  * @brief this function will check if the ray intersects with the sphere,
  * using the quadratic equation (solve function). If the determinant is
@@ -64,5 +87,27 @@ bool intersects(t_shape *shape, Ray *ray, t_hit *hit_info);
  * @return true if the ray intersects with the sphere, false otherwise
  */
 bool		sphere_intersect(Sphere *sp, Ray *ray, t_hit *hit_info);
+
+
+//! Lights
+/**
+ * @brief this function will create a light and store it's information
+ * from a string array
+ *
+ * @param point string array with light position
+ * @param ratio string with light ratio
+ * @param color string array with light color
+ * @return Light struct with light information
+ */
+Light		*light_new(char **point, char *ratio, char **color);
+
+/**
+ * @brief this function will copy the light information from the lightsource
+ * parameter to a new lightsource
+ *
+ * @param lightsource Light struct with the light information
+ * @return Light struct with new light information
+ */
+Light		*light_copy(Light *lightsource);
 
 #endif

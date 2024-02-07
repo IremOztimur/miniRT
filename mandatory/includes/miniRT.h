@@ -12,6 +12,7 @@
 #include "utils.h"
 #include "entities.h"
 #include "renderer.h"
+#include "parser.h"
 
 
 #endif

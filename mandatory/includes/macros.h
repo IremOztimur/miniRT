@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 23:11:17 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 14:50:11 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define R 0
 # define G 1
 # define B 2
+
+# define HAS_COMMAS '1'
 
 //! Viewport and window macros
 
@@ -67,6 +69,19 @@
 # define CYAN		(Color){0, 0, 255, 255}
 
 //! Error macros
+
+# define ERROR(m)	\
+	printf("Error\n%s\n", m)
+# define ERROR_NUM_ARGS(x, n)		\
+	ERROR("Wrong number of args in "x" (need "n")")
+# define ERROR_NUM_COMMAS(x)		\
+	ERROR("Too many/few commas in "x)
+# define ERROR_MISFORMAT_COLOR(x)	\
+	ERROR("Colors misformatting in "x)
+# define ERROR_LIGHT_BRIGHTNESS_OUT_OF_BOUNDS	\
+	ERROR("Light brightness out of bounds [0.0,1.0]")
+
+	
 # define ERROR_MALLOC(str)  "Failed allocation on "str"."
 # define ERROR_USAGE 		"Usage: ./miniRT <scene>.rt"
 # define ERROR_SYNTAX		"Syntax: file format misconfiguration."

@@ -75,10 +75,10 @@ vpath %.c $(foreach subfolder, $(_SUBFOLDERS), mandatory/$(SRC_FOLDER)/$(subfold
 
 MANDATORY_FILES += pixel color ray
 MANDATORY_FILES += vector vector_operations
-MANDATORY_FILES += scene shape
+MANDATORY_FILES += scene shape lightsource sphere
 MANDATORY_FILES += message quadratic_formula
 MANDATORY_FILES += intersection
-MANDATORY_FILES += parser
+MANDATORY_FILES += parser parse_illumination parse_utils read_map parse_shapes
 MANDATORY_FILES += main
 
 OBJS = $(patsubst %, $(OBJ_FOLDER)/%.o, $(MANDATORY_FILES))
