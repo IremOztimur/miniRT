@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:24:04 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/02 16:34:30 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 12:56:51 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,13 @@ Color Color_mult(Color col, double k)
 	return (color);
 }
 
-// Color color_from_strings(char **rgb); added later
+Color color_from_strings(char **rgb)
+{
+	Color color;
+
+	color.r = ft_clamp(ft_atoi(rgb[R]), 0, 255);
+	color.g = ft_clamp(ft_atoi(rgb[G]), 0, 255);
+	color.b = ft_clamp(ft_atoi(rgb[B]), 0, 255);
+
+	return (color);
+}
