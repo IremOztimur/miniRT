@@ -6,16 +6,24 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:57:18 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 23:51:27 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/07 19:43:13 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-bool parse_entity(Scene *scene, char **tokens, int count[3])
+bool	parse_entity(Scene *scene, char **tokens, int count[3])
 {
 	//TO-DO: Parse "A", "C", "L", "sp", | later: "pl", "cy"
-	if (!(ft_strncmp("A", )))
+	if (!(ft_strcmp("A", tokens[0])))
+		return (parse_ambient_light(&scene->ambient, tokens, count));
+	else if (!(ft_strcmp("C", tokens[0])))
+		return (parse_camera(&scene->camera, tokens, count));
+	else if (!(ft_strcmp("L", tokens[0])))
+		return (parse_light_source(scene->lights, tokens, count));
+	else if (!(ft_strcmp("sp", tokens[0])))
+		return (parse_sphere(scene->shapes, tokens));
+	return (true);
 }
 
 void	parse_map(Scene *scene, char **map, int counters[3])
@@ -50,6 +58,6 @@ Scene *parse(char *filename)
 	if (ft_matrix_size(scene->map) == 0)
 		message(NULL, ERROR_EMPTY_MAP);
 	//TO-DO: parse the map
-	//parse_map();
-
+	parse_map(scene, scene->map, counters);
+	return(scene);
 }
