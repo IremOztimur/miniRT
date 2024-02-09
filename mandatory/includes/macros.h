@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/07 14:50:11 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/09 12:09:29 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 #  define WIDTH 1920
 # endif
 
-#  define WIDTH 1440
 # define RATIO 	(16.0/9.0)
 # define HEIGHT (WIDTH/RATIO)
 
@@ -81,12 +80,23 @@
 # define ERROR_LIGHT_BRIGHTNESS_OUT_OF_BOUNDS	\
 	ERROR("Light brightness out of bounds [0.0,1.0]")
 
-	
+
 # define ERROR_MALLOC(str)  "Failed allocation on "str"."
 # define ERROR_USAGE 		"Usage: ./miniRT <scene>.rt"
 # define ERROR_SYNTAX		"Syntax: file format misconfiguration."
 # define ERROR_OPEN_FILE	"Couldn't open requested file"
 # define ERROR_NOT_RT		"File extension is not '.rt'."
 # define ERROR_EMPTY_MAP	"Empty map."
+# define ERROR_NO_CAMERA	"No camera in the map."
+# define ERROR_TOO_MANY		"Found more than 1 A or C entities"
+
+//! Useful macros
+
+// Returns the maximum between a and b
+# define MAX(a, b)	((a) * (a > b) + (b) * (b > a))
+// Returns the minimum between a and b
+# define MIN(a, b)	((a) * (a < b) + (b) * (b < a))
+// Returns the absolute value of x
+# define ABS(x) 	((x) * (x > 0) - (x) * (x < 0))
 
 #endif

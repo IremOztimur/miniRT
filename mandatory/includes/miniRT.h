@@ -13,6 +13,7 @@
 #include "entities.h"
 #include "renderer.h"
 #include "parser.h"
-
+#include "light.h"
+#include "debug.h"
 
 #endif

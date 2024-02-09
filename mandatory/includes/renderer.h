@@ -6,11 +6,22 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 16:58:49 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 15:53:18 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/08 17:59:03 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+
+/**
+ * @brief The function that renders the scene. Iterates over the scene's
+ * pixels and traces a ray for each that will be used to collide with
+ * the world. The pixels are painted one by one until the final image
+ * is rendered.
+ *
+ * @param w The scene struct
+ * @return int (dummy value)
+ */
+int		render(Scene *s);
 
 /**
  * @brief Puts a pixel in an image with the given color and at the given
@@ -31,6 +42,19 @@ void	put_pixel(Scene *w, Color c, int x, int y);
  * @param s The Scene struct
  */
 void	init_viewport(Scene *s);
+
+
+/**
+ * @brief Converts a pixel in x (0 to width - 1) and y (0 to height - 1) to
+ * viewport x and viewport y factors (between -1 and 1). These factors are used
+ * with the viewport vectors to access any point.
+ *
+ * @param x The pixel's x coordinate
+ * @param y The pixel's y coordinate
+ * @return Vector The x and y viewport factors
+ */
+Vector	pixels_to_viewport(int x, int y);
+
 
 /**
  * @brief Casts an infinite ray in space from the camera with the direction

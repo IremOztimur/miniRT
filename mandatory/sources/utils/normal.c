@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   normal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 12:10:24 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 13:32:38 by iremoztimur      ###   ########.fr       */
+/*   Created: 2024/02/08 16:24:47 by iremoztimur       #+#    #+#             */
+/*   Updated: 2024/02/08 17:54:27 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vector.h"
+#include "miniRT.h"
 
-Vector Vector_create(double x, double y, double z)
+Vector	sphere_normal(t_hit *inter, Ray *ray)
 {
-	Vector vector;
+	Vector	point;
+	Vector	normal;
 
-	vector.x = x;
-	vector.y = y;
-	vector.z = z;
-
-	return (vector);
+	point = ray_at(ray, inter->t);
+	normal = Vector_sub(point, inter->shape->data.sp.center);
+	return (normal);
 }
 
-double Vector_magnitude(Vector self)
+Vector	shape_normal(t_hit *inter, Ray *ray)
 {
-	return(sqrt(Vector_dot(self, self)));
+	if (inter->shape->type == SPHERE)
+		return (sphere_normal(inter, ray));
+	//for a test
+	return (sphere_normal(inter, ray));
 }

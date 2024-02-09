@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:47 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/07 19:52:55 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/08 16:30:44 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ t_shape		*shape_new(void	*data, t_shape_type type, int id);
 t_shape		*shape_copy(t_shape *shape);
 
 /**
+ * @brief this function will check if what type of shape it is and call the
+ * respective function to check what is the normal of the shape in the
+ * intersection point
+ *
+ * @param inter t_hit struct with intersection information
+ * @param ray Ray struct with ray information
+ * @return Vector vector with the normal of the shape in the intersection point
+ */
+Vector		shape_normal(t_hit *inter, Ray *ray);
+
+/**
  * @brief this function will check what type of shape it is and call the
  * respective function to check if the ray intersects with the shape
  *
@@ -88,6 +99,16 @@ bool		sphere_from_strings(Sphere *sp, char **tokens);
  */
 bool		sphere_intersect(Sphere *sp, Ray *ray, t_hit *hit_info);
 
+/**
+ * @brief this function will calculate the normal of the sphere in the
+ * intersection point
+ *
+ * @param inter t_hit struct with intersection information
+ * @param ray Ray struct with ray information
+ * @return Vector vector with the normal of the sphere in the intersection
+ * point
+ */
+Vector		sphere_normal(t_hit *inter, Ray *ray);
 
 //! Lights
 /**

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:05 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/07 18:55:59 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/08 20:47:15 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ Scene		*Scene_create(void)
 	scene = ft_calloc(1, sizeof(Scene));
 	if (!scene)
 		return (NULL);
-	scene->shapes = ft_vector_new((void *)&shape_copy, &free);
-	scene->lights = ft_vector_new((void *)&light_copy, &free);
+	scene->shapes = ft_vector_new((void *)&shape_copy, &free,\
+	(void *)&shape_print);
+	scene->lights = ft_vector_new((void *)&light_copy, &free,\
+	(void *)&light_print);
 	return (scene);
 }
 
@@ -28,6 +30,9 @@ void		Scene_destroy(Scene **scene)
 {
 	if (!(*scene))
 		return ;
+	ft_vector_delete((*scene)->shapes);
+	ft_vector_delete((*scene)->lights);
+	ft_matrix_delete((*scene)->map, &free);
 	if ((*scene)->disp.img)
 		mlx_destroy_image((*scene)->disp.mlx, (*scene)->disp.img);
 	if ((*scene)->disp.win)

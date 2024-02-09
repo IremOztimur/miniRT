@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:06:43 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/07 14:38:31 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/09 13:36:35 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * @param z value for z coordinate
  * @return vector(x, y, z)
  */
-Vector Vector_create(float x, float y, float z);
+Vector Vector_create(double x, double y, double z);
 
 /**
  * @brief function to calculate the length of a vector
@@ -31,12 +31,12 @@ Vector Vector_create(float x, float y, float z);
  * @param vec vector
  * @return double
  */
-float Vector_magnitude(Vector self);
+double Vector_magnitude(Vector self);
 
 /**
  * @brief function to normalize a vector
  *
- * @param vec vector
+ * @param self vector
  * @return vector(x, y, z)
  */
 Vector Vector_normalize(Vector self);
@@ -66,7 +66,7 @@ Vector Vector_sub(Vector v1, const Vector v2);
  * @param scalar scalar value
  * @return vector(x, y, z)
  */
-Vector Vector_scale(Vector self, float scalar);
+Vector Vector_scale(Vector self, double scalar);
 
 /**
  * @brief Divide each component of the vector by a scalar value
@@ -75,7 +75,7 @@ Vector Vector_scale(Vector self, float scalar);
  * @param scaler scaler value
  * @return vector(x, y, z)
  */
-Vector Vector_div(Vector vector, float scalar);
+Vector Vector_div(Vector vector, double scalar);
 
 /**
  * @brief function to calculate the dot product of two vectors
@@ -84,7 +84,7 @@ Vector Vector_div(Vector vector, float scalar);
  * @param v2 second vector
  * @return double
  */
-float Vector_dot(const Vector v1, const Vector v2);
+double Vector_dot(const Vector v1, const Vector v2);
 
 /**
  * @brief function to calculate the cross product of two vectors
@@ -102,5 +102,14 @@ Vector	Vector_cross(Vector v1, Vector v2);
  * @return vector(x, y, z)
  */
 Vector Vector_from_string(char **vec);
+
+/**
+ * @brief function to calculate the cossine of two vectors
+ *
+ * @param v1 first vector
+ * @param v2 second vector
+ * @return double
+ */
+double	vector_cossine(Vector v1, Vector v2);
 
 #endif
