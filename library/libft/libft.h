@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:29:06 by ioztimur          #+#    #+#             */
-/*   Updated: 2024/02/07 13:17:22 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/08 20:45:59 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_vector
 	uint32_t	size;
 	void		(*del)(void *);
 	void		*(*cpy)(void *);
+	void		(*print)(void *);
 	void		**array;
 }	t_vector;
 
@@ -79,7 +80,7 @@ int			ft_clamp(int n, int min, int max);
 void		ft_free(void *ptr);
 void		ft_vector_clear(t_vector *vector);
 void		ft_vector_delete(t_vector *vector);
-t_vector	*ft_vector_new(void *(*cpy)(), void (*del)(void *));
+t_vector	*ft_vector_new(void *(*cpy)(), void (*del)(void *), void (*print)(void *));
 void		ft_vector_pop(t_vector *vector);
 void		ft_vector_push(t_vector *vector, void *element);
 void		ft_matrix_delete(void *matrix, void (*del)(void *));
@@ -91,5 +92,6 @@ int			ft_count(char *str, char c);
 double		ft_atod(char *str);
 bool		ft_isnum(char *str, char *delims);
 size_t		ft_strclen(char *str, char *delim);
+void		*ft_vector_at(t_vector *vector, uint32_t i);
 
 #endif

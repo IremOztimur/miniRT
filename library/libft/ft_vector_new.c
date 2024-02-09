@@ -13,7 +13,8 @@
 
 #include "libft.h"
 
-t_vector	*ft_vector_new(void *(*cpy)(), void (*del)(void *))
+t_vector	*ft_vector_new(void *(*cpy)(), void (*del)(void *),\
+	void (*print)(void *))
 {
 	t_vector	*vector;
 
@@ -28,5 +29,6 @@ t_vector	*ft_vector_new(void *(*cpy)(), void (*del)(void *))
 	}
 	vector->cpy = cpy;
 	vector->del = del;
+	vector->print = print;
 	return (vector);
 }
