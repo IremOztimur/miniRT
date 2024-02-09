@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:40:39 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 11:45:54 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/09 23:18:41 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	is_shadowed(Scene *scene, t_hit *closest)
 {
 	Vector	light_dir;
 	Light	*light;
-	Ray	ray;
+	Ray		ray;
 	double	light_distance;
 
 	if (!scene->lights->size)

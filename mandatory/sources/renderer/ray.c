@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 13:46:17 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 14:09:05 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/09 15:42:25 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Vector	pixels_to_viewport(int x, int y)
 	converted.x = ((2.0f * x) / width) - 1;
 	converted.y = ((2.0f * y) / height) - 1;
 	converted.z = 0;
-	//vector_print(converted);
 	return (converted);
 }
 

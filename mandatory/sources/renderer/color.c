@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:24:04 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/07 19:22:40 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/09 23:18:32 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ Color Color_add(Color c1, Color c2)
 	return (color);
 }
 
-Color Color_mult(Color col, double k)
+Color	Color_mult(Color color, double k)
 {
-	Color color;
-
-	color.r = ft_clamp(col.r * k, 0, 255);
-	color.g = ft_clamp(col.g * k, 0, 255);
-	color.b = ft_clamp(col.b * k, 0, 255);
-
-	return (color);
+	return ((Color)
+		{
+			.r = ft_clamp(color.r * k, 0, 255),
+			.g = ft_clamp(color.g * k, 0, 255),
+			.b = ft_clamp(color.b * k, 0, 255)
+		}
+	);
 }
 
 Color Color_from_strings(char **rgb)

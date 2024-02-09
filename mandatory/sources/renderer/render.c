@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 09:10:48 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 14:10:41 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/09 23:13:33 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	render(Scene *s)
 			if (obj_hit(s->shapes, &ray, &closest))
 				illuminate(s, &closest);
 			put_pixel(s, closest.color, coords.x, coords.y);
-			printf("%f \n", coords.x);
 		}
 	}
 	mlx_put_image_to_window(s->disp.mlx, s->disp.win, s->disp.img, 0, 0);
