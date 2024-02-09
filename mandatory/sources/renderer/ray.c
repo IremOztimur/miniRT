@@ -6,21 +6,35 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 13:46:17 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/06 15:53:49 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/09 14:09:05 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/renderer.h"
+#include "miniRT.h"
 
 void	init_viewport(Scene *s)
 {
-	//TO-DO: parse camera fov from the scene
 	s->wview = tan(RADIANS(s->camera.fov / 2.0));
 	s->hview = s->wview / RATIO;
 	s->right = Vector_normalize(Vector_cross(s->camera.normal, UPGUIDE));
 	s->up = Vector_normalize(Vector_cross(s->camera.normal, s->right));
+	s->right = Vector_normalize(Vector_cross(s->camera.normal, s->up));
 }
 
+Vector	pixels_to_viewport(int x, int y)
+{
+	Vector	converted;
+	double	width;
+	double	height;
+
+	width = WIDTH;
+	height = HEIGHT;
+	converted.x = ((2.0f * x) / width) - 1;
+	converted.y = ((2.0f * y) / height) - 1;
+	converted.z = 0;
+	//vector_print(converted);
+	return (converted);
+}
 
 Ray	cast_ray(Scene *s, Vector factors)
 {
