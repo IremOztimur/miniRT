@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.c                                           :+:      :+:    :+:   */
+/*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 19:21:07 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 12:13:00 by iremoztimur      ###   ########.fr       */
+/*   Created: 2024/02/10 12:11:06 by iremoztimur       #+#    #+#             */
+/*   Updated: 2024/02/10 12:37:48 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-bool	sphere_from_strings(Sphere *sp, char **tokens)
+bool	plane_from_strings(Plane *pl, char **tokens)
 {
-	char		**coords;
-	char		**cl;
+	char	**coords;
+	char	**n;
+	char	**cl;
 
 	coords = ft_split(tokens[1], ',');
+	n = ft_split(tokens[2], ',');
 	cl = ft_split(tokens[3], ',');
 
-	sp->center = Vector_from_string(coords);
-	sp->color = Color_from_strings(cl);
-	sp->radius = ft_atod(tokens[2]) / 2.0;
+	pl->center = Vector_from_string(coords);
+	pl->normal = Vector_from_string(n);
+	pl->color = Color_from_strings(cl);
 
-	ft_matrix_delete(coords, &free);
-	ft_matrix_delete(cl, &free);
-	if (sp->radius < EPSILON)
+	if (Vector_magnitude(pl->normal) < 1.0 - EPSILON)
 		return (false);
+	pl->normal = Vector_normalize(pl->normal);
+	pl->normal = Vector_add(pl->normal, VEC_EPSILON);
+	ft_matrix_delete(coords, &free);
+	ft_matrix_delete(n, &free);
+	ft_matrix_delete(cl, &free);
 	return (true);
 }

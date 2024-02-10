@@ -76,7 +76,7 @@ vpath %.c $(foreach subfolder, $(_SUBFOLDERS), mandatory/$(SRC_FOLDER)/$(subfold
 MANDATORY_FILES += debug
 MANDATORY_FILES += pixel color ray light render
 MANDATORY_FILES += vector vector_operations
-MANDATORY_FILES += scene shape lightsource sphere
+MANDATORY_FILES += scene shape lightsource sphere plane
 MANDATORY_FILES += message quadratic_formula normal
 MANDATORY_FILES += intersection
 MANDATORY_FILES += parser parse_illumination parse_utils read_map parse_shapes

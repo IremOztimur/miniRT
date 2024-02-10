@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 14:15:58 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 14:16:05 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/10 13:11:22 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ void	sphere_print(Sphere *s)
 		s->center.x, s->center.y, s->center.z);
 	printf("  Radius: %.4lf\n", s->radius);
 	printf("  Color: (%d, %d, %d)\n", s->color.r, s->color.g, s->color.b);
+}
+
+void	plane_print(Plane *p)
+{
+	printf("Plane:\n");
+	printf("  Point: %.4lf, %.4lf, %.4lf\n", \
+		p->center.x, p->center.y, p->center.z);
+	printf("  Normal: %.4lf, %.4lf, %.4lf\n", \
+		p->normal.x, p->normal.y, p->normal.z);
+	printf("  Color: (%d, %d, %d)\n", p->color.r, p->color.g, p->color.b);
 }
 
 void	ft_vector_print(t_vector *vector)

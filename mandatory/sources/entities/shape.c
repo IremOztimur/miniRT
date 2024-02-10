@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:55:17 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/07 19:45:07 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/10 12:45:41 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_shape	*shape_copy(t_shape *shape)
 	copy->type = shape->type;
 	if (shape->type == SPHERE)
 		copy->data.sp = shape->data.sp;
+	else if (shape->type == PLANE)
+		copy->data.pl = shape->data.pl;
 	return (copy);
 }
 
@@ -37,5 +39,7 @@ t_shape	*shape_new(void	*data, t_shape_type type, int id)
 	shape->type = type;
 	if (type == SPHERE)
 		shape->data.sp = *(Sphere *)data;
+	else if (type == PLANE)
+		shape->data.pl = *(Plane *)data;
 	return (shape);
 }

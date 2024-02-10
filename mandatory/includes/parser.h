@@ -6,11 +6,13 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 22:40:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/07 19:41:54 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/10 12:51:00 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+
+//TO-DO: add Doxygen for the functions below
 
 bool	parse_syntax(char **tokens, char *code);
 
@@ -35,3 +37,5 @@ char	**read_map(Scene *scene, char *filename);
 bool	is_filename_valid(char *filename);
 
 bool	parse_sphere(t_vector *shapes, char **tokens);
+
+bool	parse_plane(t_vector *shapes, char **tokens);

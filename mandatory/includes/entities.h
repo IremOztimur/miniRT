@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:47 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/08 16:30:44 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/10 14:52:42 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,30 @@ bool		sphere_intersect(Sphere *sp, Ray *ray, t_hit *hit_info);
  * point
  */
 Vector		sphere_normal(t_hit *inter, Ray *ray);
+
+//! Planes
+/**
+ * @brief function that will create a plane and store it's information
+ * from a string array
+ *
+ * @param pl Plane struct with plane information
+ * @param tokens string array with plane information
+ * @return true if the plane was created correctly, false otherwise
+ */
+bool		plane_from_strings(Plane *pl, char **tokens);
+
+/**
+ * @brief this function will check if the ray intersects with the plane,
+ * using the dot product of the ray direction and the plane normal. If the
+ * dot product is not 0, then the ray intersects with the plane. If not, then
+ * the ray is parallel to the plane and doesn't intersect with it.
+ *
+ * @param pl Plane struct with plane information
+ * @param ray Ray struct with ray information
+ * @param inter t_hit struct with intersection information
+ * @return true if the ray intersects with the plane, false otherwise
+ */
+bool	plane_intersect(Plane *pl, Ray *ray, t_hit *hit_info);
 
 //! Lights
 /**

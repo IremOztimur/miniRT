@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:10:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 13:36:10 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/10 13:13:24 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct Vector {
 	double	y;
 	double	z;
 }	Vector;
-
 
 /**
  * @brief Represents a color by its components
@@ -88,6 +87,8 @@ typedef struct Light
 typedef enum s_shape_type
 {
 	SPHERE,
+	PLANE,
+	CYLINDER,
 }	t_shape_type;
 
 /**
@@ -105,6 +106,20 @@ typedef struct Sphere
 }	Sphere;
 
 /**
+ * @brief Describes an infinite plane
+ *
+ * @param center A point in the plane (not really its center)
+ * @param normal The direction the plane is pointing at
+ * @param color The color of the plane
+ */
+typedef struct Plane
+{
+	Vector	center;
+	Vector	normal;
+	Color	color;
+}	Plane;
+
+/**
  * @brief Contains the data of only ONE of the shapes at a time.
  * This means that if the cylinder is used, reading from the plane or
  * sphere will give you random values.
@@ -114,6 +129,7 @@ typedef struct Sphere
 typedef union u_data
 {
 	Sphere	sp;
+	Plane	pl;
 }	t_data;
 
 /**
@@ -148,8 +164,6 @@ typedef struct s_equation
 	double	t1;
 	double	t2;
 }			t_equation;
-
-
 
 /**
  * @brief Contains mlx related variables
@@ -192,7 +206,7 @@ typedef struct s_graphics
 typedef struct s_hit
 {
 	t_shape	*shape;
-	Ray	ray;
+	Ray		ray;
 	Vector	point;
 	Vector	normal;
 	Color	color;
