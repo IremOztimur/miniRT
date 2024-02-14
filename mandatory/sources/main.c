@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 14:53:57 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/14 11:23:41 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,32 @@ void	init_graphics(Scene *w)
 		message(w, ERROR_MALLOC("init_graphics (mlx image address)"));
 }
 
+int	quit(Scene *scene)
+{
+	Scene_destroy(&scene);
+	exit(EXIT_SUCCESS);
+}
+
+int	on_keypress(int keycode, Scene *s)
+{
+	if (keycode == ESC)
+		quit(s);
+	else if (keycode == W)
+		s->camera.center.y += 5;
+	else if (keycode == A)
+		s->camera.center.x -= 5;
+	else if (keycode == S)
+		s->camera.center.y -= 5;
+	else if (keycode == D)
+		s->camera.center.x += 5;
+	else if (keycode == C)
+		s->camera.center.z -= 5;
+	else if (keycode == V)
+		s->camera.center.z += 5;
+	render(s);
+	return (keycode);
+}
+
 int	main(int argc, char **av)
 {
 	Scene *scene = Scene_create();
@@ -38,6 +64,8 @@ int	main(int argc, char **av)
 	scene = parse(av[1]);
 	init_viewport(scene);
 	init_graphics(scene);
+	mlx_hook(scene->disp.win, KeyPress, KeyPressMask, on_keypress, scene);
+	mlx_hook(scene->disp.win, DestroyNotify, StructureNotifyMask, quit, scene);
 	render(scene);
 	mlx_loop(scene->disp.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:39:33 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/12 16:18:48 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/14 11:20:15 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ bool parse_cylinder(t_vector *shapes, char **tokens)
 		return (ERROR("Values are too small in cylinder"), false);
 	shape = shape_new(&cylinder, CYLINDER, shapes->size);
 	ft_vector_push(shapes, shape);
-	cylinder_print(&cylinder);
 	return (true);
 }
 

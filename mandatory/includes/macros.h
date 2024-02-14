@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/12 23:20:42 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/14 11:07:47 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,30 @@
 # define HEIGHT (WIDTH/RATIO)
 # define RATIO 	(16.0/9.0)
 # define HEIGHT (WIDTH/RATIO)
+
+//! Minilibx events
+
+# ifdef __APPLE__
+#  define ESC 53
+#  define W 13
+#  define A 0
+#  define S 1
+#  define D 2
+#  define C 8
+#  define V 9
+#  define KeyPress 2
+#  define KeyPressMask (1L<<0)
+#  define DestroyNotify 17
+#  define StructureNotifyMask (1L<<17)
+# else
+#  define ESC 65307
+#  define W 119
+#  define A 97
+#  define S 115
+#  define D 100
+#  define C 99
+#  define V 118
+# endif
 
 //! Math macros
 
