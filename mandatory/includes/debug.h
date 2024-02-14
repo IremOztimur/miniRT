@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 20:46:12 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 13:11:47 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 16:17:21 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ void	sphere_print(Sphere *s);
  * @param p The plane struct to work with to debug
  */
 void	plane_print(Plane *p);
+
+/**
+ * @brief Prints in the standard output all the values related to a scene's
+ * cylinder.
+ *
+ * @param c The Cylinder struct to work with to debug
+ */
+void	cylinder_print(Cylinder *c);
 
 /**
  * @brief Redirects the program flow to one of the other print functions,

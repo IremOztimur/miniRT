@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:57:18 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 13:10:23 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 16:18:29 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ bool	parse_entity(Scene *scene, char **tokens, int count[3])
 		return (parse_sphere(scene->shapes, tokens));
 	else if (!(ft_strcmp("pl", tokens[0])))
 		return (parse_plane(scene->shapes, tokens));
+	else if (!(ft_strcmp("cy", tokens[0])))
+		return (parse_cylinder(scene->shapes, tokens));
 	else
 		return (ERROR("Error parsing entities"), false);
 	return (true);

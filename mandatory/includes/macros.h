@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:28:28 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 15:29:40 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 23:20:42 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 //! Viewport and window macros
 
 # ifdef __APPLE__
-#  define WIDTH 800
+#  define WIDTH 1440
 # else
 #  define WIDTH 1920
 # endif

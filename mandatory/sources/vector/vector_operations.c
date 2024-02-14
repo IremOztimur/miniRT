@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:10:31 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 22:56:05 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 23:14:18 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ Vector Vector_from_string(char **vec)
 	return (vector);
 }
 
-double	vector_cossine(Vector v1, Vector v2)
+double	Vector_cossine(Vector v1, Vector v2)
 {
 	double	dot;
 	double	lengths;
@@ -81,4 +81,9 @@ double	vector_cossine(Vector v1, Vector v2)
 	dot = Vector_dot(v1, v2);
 	lengths = Vector_magnitude(v1) * Vector_magnitude(v2);
 	return (dot / lengths);
+}
+
+bool	Vector_compare(Vector v1, Vector v2)
+{
+	return (v1.x == v2.x && v1.y == v2.y && v1.z == v2.z);
 }

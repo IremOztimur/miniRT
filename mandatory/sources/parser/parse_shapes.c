@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:39:33 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 14:56:21 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 16:18:48 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,26 @@ bool	parse_plane(t_vector *shapes, char **tokens)
 	ft_vector_push(shapes, shape);
 	return (true);
 }
+
+
+bool parse_cylinder(t_vector *shapes, char **tokens)
+{
+	bool		ok;
+	Cylinder	cylinder;
+	t_shape		*shape;
+
+	if (ft_matrix_size(tokens) != 6)
+		return (ERROR("Wrong number of args in cylinder (need 6)"), false);
+	if (!parse_syntax(tokens, "011001"))
+		return (ERROR("Misconfiguration in commas/numbers in cylinder"), false);
+	if (!parse_rgb(tokens[5]))
+		return (ERROR("Colors misformatting in cylinder"), false);
+	ok = cylinder_from_strings(&cylinder, tokens);
+	if (!ok)
+		return (ERROR("Values are too small in cylinder"), false);
+	shape = shape_new(&cylinder, CYLINDER, shapes->size);
+	ft_vector_push(shapes, shape);
+	cylinder_print(&cylinder);
+	return (true);
+}
+

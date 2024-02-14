@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:47 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 14:52:42 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 23:18:39 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,93 @@ bool		plane_from_strings(Plane *pl, char **tokens);
  * @return true if the ray intersects with the plane, false otherwise
  */
 bool	plane_intersect(Plane *pl, Ray *ray, t_hit *hit_info);
+
+/**
+ * @brief this function will create a plane with the correponding information
+ *
+ * @param point point in the plane
+ * @param normal normal of the plane
+ * @param color color of the plane
+ * @return Plane struct with plane information
+ */
+Plane		plane_from_numbers(Vector point, Vector normal, Color color);
+
+//! Cylinders
+/**
+ * @brief this function will create a cylinder and store it's information
+ * from a string array
+ *
+ * @param cy Cylinder struct with cylinder information
+ * @param tokens string array with cylinder information
+ * @return true if the cylinder was created correctly, false otherwise
+ */
+bool		cylinder_from_strings(Cylinder *cy, char **tokens);
+
+/**
+ * @brief this function will check if the ray intersects with the cylinder,
+ * using the quadratic equation (solve function) to discover the intersection
+ * with the "walls" of the cylinder and the distance between the ray origin.
+ * And then, using the dot product of the ray direction and the cylinder
+ * normal, it will check if the ray intersects with the "caps" of the cylinder.
+ *
+ * @param cy Cylinder struct with cylinder information
+ * @param ray Ray struct with ray information
+ * @param hit_info t_hit struct with intersection information
+ * @return true if the ray intersects with the cylinder, false otherwise
+ */
+bool	cylinder_intersect(Cylinder *cy, Ray *ray, t_hit *hit_info);
+
+
+/**
+ * @brief this function will calculate the 4 possible intersections of the
+ * ray with the cylinder and store them in the equation struct. Then, it will
+ * check if the ray intersects with the "walls" and "caps" of the cylinder and
+ * store the closest intersection point in the intersection struct.
+ *
+ * @param cy Cylinder struct with cylinder information
+ * @param ray Ray struct with ray information
+ * @param equation t_equation struct with intersection information
+ * @param hit_info t_hit struct with intersection information
+ * @return "t" value of the closest intersection point found
+ */
+double	verify_intersections(Cylinder *cy, Ray *ray, \
+	t_equation *eq, t_hit *hit_info);
+
+/**
+ * @brief this function will check if the ray intersects with the "caps" of
+ * the cylinder, using the plane_from_number function.
+ *
+ * @param cy t_cylinder struct with cylinder information
+ * @param ray t_ray struct with ray information
+ * @param cap vector with the cap center point
+ * @return "t" value of the intersection point with the "cap" of the cylinder
+ */
+double	cap_intersection(Cylinder *cy, Ray *ray, Vector cap);
+
+/**
+ * @brief this function will check if the ray intersects with the "walls" of
+ * the cylinder. Using the "t" value we will check if the intersection point
+ * is inside the cylinder, comparing with the height and radius.
+ *
+ * @param cy Cylinder struct with cylinder information
+ * @param inter t_hit struct with intersection information
+ * @param t "t" value of the intersection point
+ * @return true if the ray intersects with the "walls" of the cylinder and "t"
+ * value is lower than the one found until now, false otherwise
+ */
+bool	check_walls(Cylinder *cy, t_hit *inter, double t);
+
+
+/**
+ * @brief this function will calculate the normal of the cylinder in the
+ * intersection point
+ *
+ * @param inter t_hit struct with intersection information
+ * @param ray Ray struct with ray information
+ * @return Vector vector with the normal of the cylinder in the intersection
+ * point
+ */
+Vector	cylinder_normal(t_hit *inter, Ray *ray);
 
 //! Lights
 /**

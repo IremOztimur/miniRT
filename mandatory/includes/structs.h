@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:10:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 13:13:24 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 15:49:23 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,16 +120,47 @@ typedef struct Plane
 }	Plane;
 
 /**
+ * @brief Describes a cylinder
+ *
+ * @param center The center of a cylinder
+ * @param cap The cap point of the plane calculated using:
+ *
+ * 		cap_base = center - height/2 * Normal Vector
+ *
+ * @param base The base point of the plane calculated using:
+ *
+ * 		cap_top = center + height/2 * Normal Vector
+ *
+ * @param normal The direction of the cylinder
+ * @param radius The radius of the cylinder
+ * @param height The height of the cylinder
+ * @param color The color of the cylinder
+ */
+typedef struct Cylinder
+{
+	Vector	center;
+	Vector	cap_top;
+	Vector	cap_base;
+	Vector	normal;
+	double	radius;
+	double	height;
+	Color	color;
+}	Cylinder;
+
+/**
  * @brief Contains the data of only ONE of the shapes at a time.
  * This means that if the cylinder is used, reading from the plane or
  * sphere will give you random values.
  *
  * @param sp The Sphere struct
+ * @param pl The Plane struct
+ * @param cy The Cylinder struct
  */
 typedef union u_data
 {
-	Sphere	sp;
-	Plane	pl;
+	Sphere		sp;
+	Plane		pl;
+	Cylinder	cy;
 }	t_data;
 
 /**

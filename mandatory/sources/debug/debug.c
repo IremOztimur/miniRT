@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 14:15:58 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 13:11:22 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 16:17:55 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,18 @@ void	plane_print(Plane *p)
 	printf("  Normal: %.4lf, %.4lf, %.4lf\n", \
 		p->normal.x, p->normal.y, p->normal.z);
 	printf("  Color: (%d, %d, %d)\n", p->color.r, p->color.g, p->color.b);
+}
+
+void	cylinder_print(Cylinder *c)
+{
+	printf("Cylinder:\n");
+	printf("  Center: (%.4lf, %.4lf, %.4lf)\n", \
+		c->center.x, c->center.y, c->center.z);
+	printf("  Normal: (%.4lf, %.4lf, %.4lf)\n", \
+		c->normal.x, c->normal.y, c->normal.z);
+	printf("  Radius: %.4lf\n", c->radius);
+	printf("  Height: %.4lf\n", c->height);
+	printf("  Color: (%d, %d, %d)\n", c->color.r, c->color.g, c->color.b);
 }
 
 void	ft_vector_print(t_vector *vector)

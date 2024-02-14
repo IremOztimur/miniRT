@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:11:06 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 12:37:48 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 19:22:00 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,17 @@ bool	plane_from_strings(Plane *pl, char **tokens)
 	ft_matrix_delete(n, &free);
 	ft_matrix_delete(cl, &free);
 	return (true);
+}
+
+Plane	plane_from_numbers(Vector center, Vector normal, Color color)
+{
+	Plane	plane;
+
+	plane = (Plane)
+	{
+		.center = center,
+		.normal = normal,
+		.color = color
+	};
+	return (plane);
 }

@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:06:43 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 13:36:35 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 23:14:54 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,15 @@ Vector Vector_from_string(char **vec);
  * @param v2 second vector
  * @return double
  */
-double	vector_cossine(Vector v1, Vector v2);
+double	Vector_cossine(Vector v1, Vector v2);
+
+/**
+ * @brief function to comapre two vectors
+ *
+ * @param vec1 vector
+ * @param vec2 vector
+ * @return true if the vectors are equal, false otherwise
+ */
+bool	Vector_compare(Vector v1, Vector v2);
 
 #endif

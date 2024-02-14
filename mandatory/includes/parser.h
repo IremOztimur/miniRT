@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 22:40:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 12:51:00 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/12 16:16:25 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,5 @@ bool	is_filename_valid(char *filename);
 bool	parse_sphere(t_vector *shapes, char **tokens);
 
 bool	parse_plane(t_vector *shapes, char **tokens);
+
+bool	parse_cylinder(t_vector *shapes, char **tokens);
