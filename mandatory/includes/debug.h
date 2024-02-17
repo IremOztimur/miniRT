@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 20:46:12 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/12 16:17:21 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/17 21:32:45 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	color_print(Color *color);
 /**
  * @brief Prints in the standard output all the values related to a 3D vector.
  *
- * @param vec The t_vec3 struct to debug
+ * @param vec The Vector struct to debug
  */
 void	vector_print(Vector vec);
 

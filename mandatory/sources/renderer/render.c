@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 09:10:48 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/10 09:25:23 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/16 15:30:56 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	render(Scene *s)
 			closest.color = BLACK;
 			closest.shape = NULL;
 			closest.t = INFINITY;
-			factors = pixels_to_viewport(coords.x, coords.y);
+			factors = canvas_to_viewport(coords.x, coords.y);
 			ray = cast_ray(s, factors);
 			if (obj_hit(s->shapes, &ray, &closest))
 				illuminate(s, &closest);

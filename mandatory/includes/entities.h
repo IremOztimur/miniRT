@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:47 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/12 23:18:39 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/16 18:52:12 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,19 @@ double	cap_intersection(Cylinder *cy, Ray *ray, Vector cap);
  */
 bool	check_walls(Cylinder *cy, t_hit *inter, double t);
 
+/**
+ * @brief this function will check if the ray intersects with the "caps" of
+ * the cylinder. Using the "t" value we will check if the intersection point
+ * is inside on the cap of the cylinder, comparing its distance with the radius.
+ *
+ * @param cy Cylinder struct with cylinder information
+ * @param cap center point of the cap
+ * @param inter t_hit struct with intersection information
+ * @param t "t" value of the intersection point
+ * @return true if the ray intersects with the "caps" of the cylinder and "t"
+ * value is lower than the one found until now, false otherwise
+ */
+bool		check_caps(Cylinder *cy, Vector cap, t_hit *inter, double t);
 
 /**
  * @brief this function will calculate the normal of the cylinder in the

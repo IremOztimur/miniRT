@@ -17,6 +17,7 @@
 		"string": "c",
 		"string_view": "c",
 		"vector": "c",
-		"debug.h": "c"
+		"debug.h": "c",
+		"sstream": "c"
 	}
 }

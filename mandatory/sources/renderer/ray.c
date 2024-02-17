@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 13:46:17 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 15:42:25 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/16 15:30:56 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_viewport(Scene *s)
 	s->right = Vector_normalize(Vector_cross(s->camera.normal, s->up));
 }
 
-Vector	pixels_to_viewport(int x, int y)
+Vector	canvas_to_viewport(int x, int y)
 {
 	Vector	converted;
 	double	width;

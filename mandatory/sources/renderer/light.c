@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:40:39 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/12 23:13:08 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/16 22:23:16 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool	is_obscured(t_vector *shapes, t_shape *self, Ray *ray, double max_t)
 	return (false);
 }
 
-Color	diffuse(Light *bulb, t_hit *inter, double k)
+Color	diffuse(Light *bulb, t_hit *inter, double i)
 {
 	Vector	light_dir;
 	Color	diff_color;
@@ -77,7 +77,7 @@ Color	diffuse(Light *bulb, t_hit *inter, double k)
 	light_dir = Vector_sub(bulb->center, inter->point);
 	attenuation = MIN(1.0, 90.0 / Vector_magnitude(light_dir));
 	cos_angle = Vector_cossine(inter->normal, light_dir);
-	diffuse_ratio = k * cos_angle * attenuation;
+	diffuse_ratio = i * cos_angle * attenuation;
 	diff_color = Color_mult(inter->color, diffuse_ratio);
 	return (diff_color);
 }

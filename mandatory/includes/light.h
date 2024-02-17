@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:49:05 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/09 11:45:27 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/17 20:11:58 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ Color	ambient(Color	color, double ratio);
  *
  * @param color The closest shape color
  * @param ratio The ambient lighting ration in the scene
+ * @param i		The intensity of the incoming light
  * @return Color The final color
  */
-Color	diffuse(Light *bulb, t_hit *inter, double k);
-
+Color	diffuse(Light *bulb, t_hit *inter, double i);
 
 /**
  * @brief Looks if any object is between the closest shape and the

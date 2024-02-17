@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 16:58:49 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/08 17:59:03 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/17 20:47:36 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * the world. The pixels are painted one by one until the final image
  * is rendered.
  *
- * @param w The scene struct
+ * @param s The scene struct
  * @return int (dummy value)
  */
 int		render(Scene *s);
@@ -53,7 +53,7 @@ void	init_viewport(Scene *s);
  * @param y The pixel's y coordinate
  * @return Vector The x and y viewport factors
  */
-Vector	pixels_to_viewport(int x, int y);
+Vector	canvas_to_viewport(int x, int y);
 
 
 /**
