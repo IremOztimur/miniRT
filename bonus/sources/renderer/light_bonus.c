@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:40:39 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/17 20:18:04 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 01:50:51 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 void	illuminate(Scene *scene, t_hit *closest)
 {
+	uint32_t i;
 	Color	color;
 	Light	*bulb;
 
-	bulb = ft_vector_at(scene->lights, 0);
+	i = -1;
 	color = ambient(closest->color, scene->ambient.ratio);
-	if (bulb && !is_shadowed(scene, closest))
+	while (++i < scene->lights->size)
 	{
+		bulb = ft_vector_at(scene->lights, i);
+		if (is_shadowed(scene, bulb, closest))
+			continue ;
 		color = Color_add(color, diffuse(bulb, closest, bulb->ratio));
 		color = Color_add(color, specular(bulb, closest));
 	}
@@ -32,17 +36,13 @@ Color	ambient(Color	color, double ratio)
 	return (Color_mult(color, ratio));
 }
 
-bool	is_shadowed(Scene *scene, t_hit *closest)
+bool	is_shadowed(Scene *scene, Light *bulb, t_hit *closest)
 {
 	Vector	light_dir;
-	Light	*light;
-	Ray		ray;
+	Ray	ray;
 	double	light_distance;
 
-	if (!scene->lights->size)
-		return (false);
-	light = ft_vector_at(scene->lights, 0);
-	light_dir = Vector_sub(light->center, closest->point);
+	light_dir = Vector_sub(bulb->center, closest->point);
 	light_distance = Vector_magnitude(light_dir);
 	ray.origin = Vector_add(closest->point, VEC_EPSILON);
 	ray.direction = Vector_normalize(light_dir);
@@ -80,8 +80,9 @@ Color	diffuse(Light *bulb, t_hit *inter, double i)
 	light_dir = Vector_sub(bulb->center, inter->point);
 	attenuation = MIN(1.0, 90.0 / Vector_magnitude(light_dir));
 	cos_angle = Vector_cossine(inter->normal, light_dir);
-	diffuse_ratio = i * cos_angle * attenuation;
+	diffuse_ratio = MAX(0.0, i * cos_angle * attenuation);
 	diff_color = Color_mult(inter->color, diffuse_ratio);
+	diff_color = Color_blender(diff_color, bulb->color);
 	return (diff_color);
 }
 

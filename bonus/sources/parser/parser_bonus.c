@@ -6,20 +6,20 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:57:18 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/17 22:06:49 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 01:26:22 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-bool	parse_entity(Scene *scene, char **tokens, int count[3])
+bool	parse_entity(Scene *scene, char **tokens, int counters[2])
 {
 	if (!(ft_strcmp("A", tokens[0])))
-		return (parse_ambient_light(&scene->ambient, tokens, count));
+		return (parse_ambient_light(&scene->ambient, tokens, &counters[0]));
 	else if (!(ft_strcmp("C", tokens[0])))
-		return (parse_camera(&scene->camera, tokens, count));
-	else if (!(ft_strcmp("L", tokens[0])))
-		return (parse_light_source(scene->lights, tokens, count));
+		return (parse_camera(&scene->camera, tokens, &counters[1]));
+	else if (!(ft_strcmp("l", tokens[0])))
+		return (parse_light_source(scene->lights, tokens));
 	else if (!(ft_strcmp("sp", tokens[0])))
 		return (parse_sphere(scene->shapes, tokens));
 	else if (!(ft_strcmp("pl", tokens[0])))
@@ -33,7 +33,7 @@ bool	parse_entity(Scene *scene, char **tokens, int count[3])
 	return (true);
 }
 
-void	parse_map(Scene *scene, char **map, int counters[3])
+void	parse_map(Scene *scene, char **map, int counters[2])
 {
 	int		i;
 	bool	ok;
@@ -53,9 +53,9 @@ void	parse_map(Scene *scene, char **map, int counters[3])
 Scene *parse(char *filename)
 {
 	Scene *scene;
-	int	counters[3];
+	int	counters[2];
 
-	ft_bzero(counters, 3 * sizeof(int));
+	ft_bzero(counters, 2 * sizeof(int));
 	if (!(is_filename_valid(filename)))
 		message(NULL, ERROR_NOT_RT);
 	scene = Scene_create();
@@ -67,7 +67,7 @@ Scene *parse(char *filename)
 	parse_map(scene, scene->map, counters);
 	if (counters[1] == 0)
 		message(scene, ERROR_NO_CAMERA);
-	if (counters[0] > 1 || counters[1] > 1 || counters[2] > 1)
+	if (counters[0] > 1 || counters[1] > 1)
 		message(scene, ERROR_TOO_MANY);
 	return(scene);
 }

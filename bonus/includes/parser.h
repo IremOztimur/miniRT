@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 22:40:37 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/17 22:07:45 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 01:14:33 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ bool	parse_syntax(char **tokens, char *code);
 
 bool	parse_double(char **nb);
 
-void	parse_map(Scene *scene, char **map, int counters[3]);
+void	parse_map(Scene *scene, char **map, int counters[2]);
 
-bool	parse_entity(Scene *scene, char **tokens, int count[3]);
+bool	parse_entity(Scene *scene, char **tokens, int counters[2]);
 
 bool	parse_rgb(char *color);
 
-bool	parse_ambient_light(Light *ambient, char **tokens, int counters[3]);
+bool	parse_ambient_light(Light *ambient, char **tokens, int *counter);
 
-bool	parse_camera(Camera *cam, char **tokens, int counters[3]);
+bool	parse_camera(Camera *cam, char **tokens, int *counter);
 
-bool	parse_light_source(t_vector *lights, char **tokens, int counters[3]);
+bool	parse_light_source(t_vector *lights, char **tokens);
 
 Scene	*parse(char *filename);
 

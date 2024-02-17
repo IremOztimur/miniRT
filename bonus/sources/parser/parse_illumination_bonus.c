@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_illumination.c                               :+:      :+:    :+:   */
+/*   parse_illumination_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:50:54 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/08 20:18:43 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 01:14:05 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "../../includes/miniRT.h"
 
-bool	parse_ambient_light(Light *ambient, char **tokens, int counters[3])
+bool	parse_ambient_light(Light *ambient, char **tokens, int *counter)
 {
 	char	**color;
 
@@ -28,12 +28,12 @@ bool	parse_ambient_light(Light *ambient, char **tokens, int counters[3])
 	ambient->ratio = ft_atod(tokens[1]);
 	ambient->color = Color_from_strings(color);
 	ft_matrix_delete(color, &free);
-	counters[0]++;
+	(*counter)++;
 	return (true);
 }
 
 
-bool	parse_camera(Camera *cam, char **tokens, int counters[3])
+bool	parse_camera(Camera *cam, char **tokens, int *counter)
 {
 	char	**color;
 	char	**normal;
@@ -55,11 +55,11 @@ bool	parse_camera(Camera *cam, char **tokens, int counters[3])
 	cam->fov = ft_atod(tokens[3]);
 	if (cam->fov < 0.0 || cam->fov > 180.0)
 		return (ERROR("FOV out of bounds [0, 180]"), false);
-	counters[1]++;
+	(*counter)++;
 	return (true);
 }
 
-bool	parse_light_source(t_vector *lights, char **tokens, int counters[3])
+bool	parse_light_source(t_vector *lights, char **tokens)
 {
 	char	**origin;
 	char	**color;
@@ -79,6 +79,5 @@ bool	parse_light_source(t_vector *lights, char **tokens, int counters[3])
 	ft_vector_push(lights, light);
 	ft_matrix_delete(origin, &free);
 	ft_matrix_delete(color, &free);
-	counters[2]++;
 	return (true);
 }

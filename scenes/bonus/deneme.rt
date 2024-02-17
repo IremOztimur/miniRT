@@ -1,7 +1,8 @@
 A      0.2                                  255,255,255
 
 C      0,0,0    0,0,1     60
-L      0,0,0             0.7              255,255,255
+
+l      0,0,0             0.7              255,255,255
 
 #Name  Center     Diameter     Color      Ratio    Shininess
 sp     0,0,50     15         255,0,0     1          100

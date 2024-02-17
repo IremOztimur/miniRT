@@ -18,6 +18,9 @@
 		"string_view": "c",
 		"vector": "c",
 		"debug.h": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"__bit_reference": "c",
+		"bitset": "c",
+		"unordered_map": "c"
 	}
 }

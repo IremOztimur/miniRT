@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:49:05 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/17 20:12:23 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 01:39:45 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,11 @@ bool	is_obscured(t_vector *shapes, t_shape *self, Ray *ray, double max_t);
  * @brief Performs some calculations before calling the is_obscured function
  * like the light direction and distance
  *
- * @param scene The t_world struct
+ * @param world The t_world struct
+ * @param bulb The light source
  * @param closest The closest shape
  * @return The is_obscured return value
  */
-bool	is_shadowed(Scene *scene, t_hit *closest);
+bool	is_shadowed(Scene *scene, Light *bulb, t_hit *closest);
 
 #endif
