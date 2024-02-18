@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:39:33 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/17 21:59:16 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 02:36:36 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,10 @@ bool	parse_cone(t_vector *shapes, char **tokens)
 	if (!parse_rgb(tokens[5]))
 		return (ERROR_MISFORMAT_COLOR("cone"), false);
 	ok = cone_from_strings(&cone, tokens);
+	if (ft_atod(tokens[6]) < 0.0 || ft_atod(tokens[6]) > 1.0)
+		return (ERROR_KS_OUT_OF_BOUNDS("cone"), false);
+	if (ft_atod(tokens[7]) < 0.0)
+		return (ERROR_SHININESS_OUT_OF_BOUNDS("cone"), false);
 	if (!ok)
 		return (ERROR_VALUES_TOO_SMALL("cone"), false);
 	shape = shape_new(&cone, CONE, shapes->size, tokens + 6);

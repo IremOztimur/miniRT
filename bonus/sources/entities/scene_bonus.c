@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.c                                            :+:      :+:    :+:   */
+/*   scene_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:05:05 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/08 20:47:15 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 03:35:58 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void		Scene_destroy(Scene **scene)
 		mlx_destroy_image((*scene)->disp.mlx, (*scene)->disp.img);
 	if ((*scene)->disp.win)
 		mlx_destroy_window((*scene)->disp.mlx, (*scene)->disp.win);
-	ft_free((*scene)->disp.mlx);
 	free(*scene);
 	*scene = NULL;
 }

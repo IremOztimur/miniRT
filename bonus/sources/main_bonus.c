@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/14 11:23:41 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 03:34:00 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	init_graphics(Scene *w)
 int	quit(Scene *scene)
 {
 	Scene_destroy(&scene);
+	system("leaks miniRT");
 	exit(EXIT_SUCCESS);
 }
 
@@ -57,7 +58,7 @@ int	on_keypress(int keycode, Scene *s)
 
 int	main(int argc, char **av)
 {
-	Scene *scene = Scene_create();
+	Scene *scene;
 
 	if (argc != 2)
 		message(NULL, ERROR_USAGE);

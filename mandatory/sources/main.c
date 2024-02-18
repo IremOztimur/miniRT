@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/14 11:23:41 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 03:33:49 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	on_keypress(int keycode, Scene *s)
 
 int	main(int argc, char **av)
 {
-	Scene *scene = Scene_create();
+	Scene *scene;
 
 	if (argc != 2)
 		message(NULL, ERROR_USAGE);
@@ -69,3 +69,9 @@ int	main(int argc, char **av)
 	render(scene);
 	mlx_loop(scene->disp.mlx);
 }
+
+// void __attribute__((destructor)) a(){
+// 	system("leaks miniRT");
+// }
+
+
