@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/18 03:33:49 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 04:17:52 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,4 @@ int	main(int argc, char **av)
 	render(scene);
 	mlx_loop(scene->disp.mlx);
 }
-
-// void __attribute__((destructor)) a(){
-// 	system("leaks miniRT");
-// }
-
 

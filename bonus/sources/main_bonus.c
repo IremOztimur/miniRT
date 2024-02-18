@@ -6,7 +6,7 @@
 /*   By: iremoztimur <iremoztimur@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:18:15 by iremoztimur       #+#    #+#             */
-/*   Updated: 2024/02/18 03:34:00 by iremoztimur      ###   ########.fr       */
+/*   Updated: 2024/02/18 04:17:48 by iremoztimur      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	init_graphics(Scene *w)
 int	quit(Scene *scene)
 {
 	Scene_destroy(&scene);
-	system("leaks miniRT");
 	exit(EXIT_SUCCESS);
 }
 
