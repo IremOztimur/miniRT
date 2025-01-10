@@ -47,8 +47,7 @@ miniRT is a minimal ray tracing engine developed as part of the 42 School curric
 ### Installation
 
 ```bash
-git clone <repository-url>
-cd miniRT
+git clone git@github.com:IremOztimur/miniRT.git
 make # For mandatory part
 make bonus # For bonus features
 ```
